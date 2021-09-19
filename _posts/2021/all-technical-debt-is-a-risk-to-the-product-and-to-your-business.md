@@ -1,0 +1,162 @@
+---
+ID: 45521
+post_title: >
+  All technical debt is a risk to the
+  product and to your business.
+post_name: >
+  all-technical-debt-is-a-risk-to-the-product-and-to-your-business
+author: >
+  Martin Hinshelwood (He/Him)
+  nkdAgility.com
+post_date: 2021-01-25 14:55:00
+layout: post
+link: >
+  https://nkdagility.com/blog/all-technical-debt-is-a-risk-to-the-product-and-to-your-business/
+published: true
+tags:
+  - Continuous Quality
+  - Definition of Done
+  - Predictable Quality
+categories:
+  - 'Code &amp; Complexity'
+  - 'Transparency &amp; Commitment'
+---
+<!-- wp:paragraph -->
+<p>If you were buying a car, or a TV, you as the purchaser would do your best to understand the product that you are buying, the quality tradeoffs, and the capabilities. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":45535} -->
+<figure class="wp-block-image"><img src="https://nkdagility.com/wp-content/uploads/2021/01/All-technical-debt-is-risk-to-the-product-and-to-your-business-1152x720.jpg" alt="" class="wp-image-45535"/><figcaption>All technical debt is a risk to the product and to your business.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>So why is so much of software opaque to the business? Why does the business have a fire-and-forget mentality and little interest in understanding what they are investing in? </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>The modern businesses negligence in understanding their capital investment is in that lack of understanding. You can't hide it in a cost centre forever.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Reviewer(s):</strong> <a href="https://www.linkedin.com/in/adam-moss/">Adam Moss FBCS CITP</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 id="h-tl-dr">TL;DR;</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Every business (receiving entity) requesting a custom solution should expect valuable delivery of the highest possible quality. Your delivery should valuable and work; be free from known defect. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><em><strong>All technical debt is risk to the product and to your business. </strong></em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Technical debt is like an unhedged fund! There is no asset securing that risk, no insurance for it. Technical debt is 100% risk.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Since Product Delivery is a capital expenditure the output is an asset of your organisation in the same way that a building or equipment is. All of these assets should be accurately represented on a balance sheet and likely part of your year-end accounts. Part of the worth of your company.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>There is a name given to miss representing an organisational asset, either knowingly or unknowingly, on your corporate accents: fraud.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 id="h-but-not-all-debt-is-bad">"But, not all debt is bad!"</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>I hear the phrase "but not all debt is bad" a lot, usually coupled with "some level of debt is manageable" and, as a software developer, it makes me cringe. There is no acceptable level of technical debt.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li><strong>Poorly written or difficult to understand</strong> - if it takes new people weeks to become productive then you likely have a product that is difficult to read, difficult to change, and prone to error.</li><li><strong>Changing things results in faults</strong> - any time your team turns into a bunch of Plumber's sucking air when you suggest a change you know that part of the system has way too much technical debt.</li><li><strong>Lack of Automation</strong> - Anything that can be automated should be, anything that cant should be rearchitected so that it can be.</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>It's important to understand that technical debt does not accumulate linearly. It can take years for the debt to accumulate, and years for it to become a serious problem. It sneaks up on you, and suddenly you are lying bloody on the floor wondering where your wallet is.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 id="h-the-non-linear-accumulation-of-technical-debt">The non-linear accumulation of technical debt</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A good example of this is from the Developer Division (DivDev) at Microsoft in developing a product called Team Foundation Server. This commercial product was built using traditional project management practices and delivered on a two-yearly cadence. From 2005 (first beta) until 2012 they worked, successfully delivering a new version every 2 years. Even before 2012 Leadership, and engineers, had noticed that things were getting bogged down. Things were just taking longer to deliver than before and by 2012, with circa 600 people working on it, they were delivering just over 24 features to production each year.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":45538,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://nkdagility.com/wp-content/uploads/2021/01/image-2.png" alt="" class="wp-image-45538"/><figcaption>TFS was delivered on a 2 year cycle.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The gap between their features and competitors was growing, and customer expectations were only able to be met by sacrificing yet more quality for speed. On a two-yearly cadence, it takes four years to deliver on feature requests.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Technical debt had become a serious business problem!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 id="h-paying-back-the-technical-debt">Paying back the technical debt</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Two visionaries at Microsoft, Brian Harry and Aaron Bjork, started to make changes to tackle this problem. They saw that they needed to get closer to the customers need. To do this they had to shorten the feedback loop, and they settled on 3-week Sprints using Scrum.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":45539,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://nkdagility.com/wp-content/uploads/2021/01/image-3.png" alt="" class="wp-image-45539"/><figcaption>Three weeks Sprints instead!</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>And boy was that hard! Moving to 3-week Sprints created a level of transparency that instilled fear! Fear of failure, fear of being an imposter, fear of being held accountable. Aaron and Brian worked hard to push forward and alleviate those fears so that they could really see what was going on and create an environment where the product delivery teams could do their best work.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"id":45536,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://nkdagility.com/wp-content/uploads/2021/01/image.png" alt="" class="wp-image-45536"/><figcaption>Azure DevOps Team Feature delivery per year!</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>It took them many years of hard work paying back the now transparent Technical Debt to get to where they are now. They have decoupled delivery and release, and while they still have a 3-week release cadence most of the work is done within continuous delivery. Feedback from customers can be implemented and delivered within hours or days, not months and years.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"align":"center","id":45537,"sizeSlug":"large","linkDestination":"none"} -->
+<div class="wp-block-image"><figure class="aligncenter size-large"><img src="https://nkdagility.com/wp-content/uploads/2021/01/image-1.png" alt="" class="wp-image-45537"/><figcaption>What metrics to watch, and some to not!</figcaption></figure></div>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>This became a game-changer for the whole group and ultimately was rolled out throughout Microsoft changing the company from a large oil tanker to a flotilla of patrol boats looking for opportunities to provide value.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 id="h-technical-debt-will-always-bite-back">Technical Debt will always bite back</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>It’s the compound nature of the debt, its ninja-like hiding ability, and deceptive payback cost that is the risk. You have no idea how deep the rabbit hole goes.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>It's like a sub-prime Mortgage pack: We are making a lot of money now by steaming ahead and running that tightrope of debt vs delivery, but at some point, we are just screwed!</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I just don’t believe that if the business (read CFO) of the receiving entity really understood the risk that technical debt creates that they would ever approve of any level of acceptable debt.  If you don't create a culture of quality then we:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li>Are not really sure what is done and what is not</li><li>Have no idea what we can do and when it will be done</li><li>Have no idea what even needs to be done</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p><strong>It’s a Roadkill Burger! It may indeed be tasty at the moment, but you will eventually get sick and die.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
