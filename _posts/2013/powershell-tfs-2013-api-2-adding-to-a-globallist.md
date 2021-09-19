@@ -1,0 +1,64 @@
+---
+ID: 10151
+post_title: 'PowerShell TFS 2013 API #2 &#8211; Adding to a GlobalList'
+post_name: >
+  powershell-tfs-2013-api-2-adding-to-a-globallist
+author: >
+  Martin Hinshelwood (He/Him)
+  nkdAgility.com
+post_date: 2013-10-16 10:30:57
+post_excerpt: '<p class="lead">Using the TFS 2013 API along with a little PowerShell we can add a ‘team field’ to our global list.</p>'
+layout: post
+link: >
+  https://nkdagility.com/blog/powershell-tfs-2013-api-2-adding-to-a-globallist/
+published: true
+tags:
+  - GlobalList
+  - PowerShell
+  - TFS
+  - TFS 2013
+  - WorkItemStore
+categories:
+  - 'Code &amp; Complexity'
+---
+<p class="lead">Using the TFS 2013 API along with a little PowerShell we can add a ‘team field’ to our global list.</p>
+<p>I have been working a lot with PowerShell recently and I have been stuck by its flexibility even when calling standard .NET API’s.&nbsp; You should start with g<a title="Get TFS Collection" href="http://nakedalmweb.wpengine.com/powershell-tfs-2013-api-0-get-tfscollection-and-tfs-services/">eting the TFS Collection</a> which will give you basic connectivity and imports required to get started. If we want to use 'team field' we may want to automate some of the activities that we need to make it happen slickly. You will have created a Global List for your 'team field' and you will want to add new entries. You can add them manually, or you can hit the TFS API to give you a leg up...</p>
+<p>In order to add an entry to a global list we unfortunately need to export all of the global lists locally as XML, edit it and then upload it back in. I have been trying to create as many reusable functions as possible in my PowerShell exploits and I am building up a rather hearty set of components. I have not yet figured out how to create reusable components that can be easily imported but I have figured out functions:</p>
+<pre>function Add-TfsGlobalListItem {
+    Param(
+        [parameter(Mandatory=$true)][Microsoft.TeamFoundation.Client.TfsTeamProjectCollection] $TfsCollection,
+        [parameter(Mandatory=$true)][String] $GlobalListName,
+        [parameter(Mandatory=$true)][String] $GlobalEntryValue
+        )
+    # Get Global List
+    $store = Get-TfsWorkItemStore $TfsCollection
+    [xml]$export = $store.ExportGlobalLists();
+
+    $globalLists = $export.ChildNodes[0];
+    $globalList = $globalLists.SelectSingleNode("//GLOBALLIST[@name='$GlobalListName']")
+
+    # if no GL then add it
+    If ($globalList -eq $null)
+    {
+        $globalList = $export.CreateElement("GLOBALLIST");
+        $globalListNameAttribute = $export.CreateAttribute("name");
+        $globalListNameAttribute.Value = $GlobalListName
+        $globalList.Attributes.Append($globalListNameAttribute);
+        $globalLists.AppendChild($globalList);
+    }
+
+    #Create a new node.
+    $GlobalEntry = $export.CreateElement("LISTITEM");
+    $GlobalEntryAttribute = $export.CreateAttribute("value");
+    $GlobalEntryAttribute.Value = $GlobalEntryValue
+    $GlobalEntry.Attributes.Append($GlobalEntryAttribute);
+
+    #Add new entry to list
+    $globalList.AppendChild($GlobalEntry)
+    # Import list to server
+    $store.ImportGlobalLists($globalLists)
+}
+</pre>
+<p><small>Figure: Adding to a GlobalList with PowerShell</small></p>
+<p>Here you can see that we are first getting the Work Item Store service, which is where all of the magic around Work Item Tracking occurs. Once we have that we need to export the XML using the “ExportGlobalLists” (#9) method which effectively just pucks up the entire XML tree for the global lists. We can then parse and edit it like any other piece of XML. We can find the list that we want, as all of the lists are exported, using a little XPath (#11)&nbsp; and determine wither the required global list even exists. If it does not then my script goes ahead and adds one (#14-21) so that we don’t get an error. If this is the first time that you are added and element to a list it only makes sense that you would want the list to exist so creating it is not a stretch.</p>
+<p>Once we have the list, wither it is a new or existing one, we can go ahead and create and add the new element (#24-27.) Once we have everything in place we can import the entire set of global lists back into the server using the Import method.</p>
